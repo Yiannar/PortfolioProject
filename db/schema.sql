@@ -1,7 +1,8 @@
-\c diamonds_info
-
 DROP DATABASE IF EXISTS diamonds_info;
 CREATE DATABASE diamonds_info;
+
+
+\c diamonds_info;
 
 CREATE TABLE diamonds(
     id SERIAL PRIMARY KEY,
@@ -14,3 +15,15 @@ CREATE TABLE diamonds(
     is_reported BOOLEAN
 );
 
+DROP TABLE IF EXISTS reviews;
+
+CREATE TABLE reviews (
+    id SERIAL PRIMARY KEY,
+    reviwer TEXT NOT NULL,
+    title TEXT,
+    content TEXT,
+    rating NUMERIC,
+    CHECK (rating >= 0 AND rating <=5),
+    diamond_id INTEGER REFERENCES diamonds (id)
+    ON DELETE CASCADE
+);
