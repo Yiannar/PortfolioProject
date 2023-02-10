@@ -7,6 +7,7 @@ CREATE DATABASE diamonds_info;
 CREATE TABLE diamonds(
     id SERIAL PRIMARY KEY,
     shape TEXT NOT NULL,
+    image TEXT NOT NULL,
     carat NUMERIC,
     color TEXT NOT NULL,
     clarity TEXT NOT NULL,

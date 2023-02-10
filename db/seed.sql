@@ -1,16 +1,16 @@
 \c diamonds_info;
 
-INSERT INTO diamonds( shape , carat , color , clarity , cut, price, is_reported ) VALUES 
-('Princess', 1.03, 'D', 'IF', 'Excellent', 2700, true),
-('Round', 1.02, 'I', 'VS1', 'Ideal', 5000, true),
-('Cushion', 1.01, 'I', 'VVS2', 'Very Good', 3000, true),
-('Pear', 0.40, 'J', 'SI1', 'Good', 417, true),
-('Emerald', 10.06, 'J', 'VS2', 'Very Good', 294520, true),
-('Asscher', 6.40, 'K', 'VS2', 'Very Good', 88169, true),
-('Oval', 0.23, 'F', 'VVS1', 'Very Good', 322, true),
-('Marquise', 0.30, 'E', 'VS2', 'Very Good', 759, true),
-('Radiant', 0.32, 'G', 'IF', 'Very Good', 441, true),
-('Heart', 5.36, 'D', 'FL', 'Very Good', 407848, true);
+INSERT INTO diamonds( shape ,image, carat , color , clarity , cut, price, is_reported ) VALUES 
+('Princess', 'https://res.cloudinary.com/dwjrv71xr/image/upload/v1676013180/download_afso6t.jpg',1.03, 'D', 'IF', 'Excellent', 2700, true),
+('Round', 'https://res.cloudinary.com/dwjrv71xr/image/upload/v1676013180/round-diamond_gi6tf7.jpg',1.02, 'I', 'VS1', 'Ideal', 5000, true),
+('Cushion', 'https://res.cloudinary.com/dwjrv71xr/image/upload/v1676013180/cushion-diamond_tdo0gx.jpg',1.01, 'I', 'VVS2', 'Very Good', 3000, true),
+('Pear', 'https://res.cloudinary.com/dwjrv71xr/image/upload/v1676013180/pear-diamond_wzcmq5.jpg',0.40, 'J', 'SI1', 'Good', 417, true),
+('Emerald', 'https://res.cloudinary.com/dwjrv71xr/image/upload/v1676013180/emerald-diamond_jtxw7y.jpg',10.06, 'J', 'VS2', 'Very Good', 294520, true),
+('Asscher', 'https://res.cloudinary.com/dwjrv71xr/image/upload/v1676013180/asscher-diamond_fty9on.jpg',6.40, 'K', 'VS2', 'Very Good', 88169, true),
+('Oval', 'https://res.cloudinary.com/dwjrv71xr/image/upload/v1676013180/oval-diamond_zlsijd.jpg',0.23, 'F', 'VVS1', 'Very Good', 322, true),
+('Marquise', 'https://res.cloudinary.com/dwjrv71xr/image/upload/v1676013180/marquise-diamond_knardq.jpg',0.30, 'E', 'VS2', 'Very Good', 759, true),
+('Radiant', 'https://res.cloudinary.com/dwjrv71xr/image/upload/v1676013180/radiant-diamond_co0ey5.jpg',0.32, 'G', 'IF', 'Very Good', 441, true),
+('Heart', 'https://res.cloudinary.com/dwjrv71xr/image/upload/v1676013180/heart-diamond_yjbfls.jpg',5.36, 'D', 'FL', 'Very Good', 407848, true);
 
 
 INSERT INTO reviews ( diamond_id, reviwer, title, content, rating) VALUES
