@@ -1,13 +1,25 @@
-// DEPENDENCIES
-const express = require("express");
-
+const cors = require('cors');
+const express = require('express');
 // CONFIGURATION
+
 const app = express();
 
+// MIDDLEWARE
+app.use(express.json());
+app.use(cors());
+app.use('/diamonds', require('./controller/diamondsController'));
+app.use('/reviews', require('./controller/reviewsController'))
+
+
 // ROUTES
-app.get("/", (req, res) => {
-  res.send("Welcome to the Diamond's App");
+app.get('/', (req, res) => {
+  res.send('Welcome to Diamonds Page');
 });
 
+// Error
+app.get('*', (req, res) => {
+  res.status(404).send('Page does not exist');
+});
 // EXPORT
+
 module.exports = app;
