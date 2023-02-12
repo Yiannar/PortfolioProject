@@ -2,7 +2,7 @@ const checkShape = (req, res, next)=>{
     if (req.body.shape){
         next()
     }else{
-        res.status(400).json({erro:'Shape is required'})
+        res.status(400).json({error:'Shape is required'})
     }
 };
 

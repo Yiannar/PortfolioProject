@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use('/diamonds', require('./controller/diamondsController'));
-app.use('/reviews', require('./controller/reviewsController'))
+// app.use('/reviews', require('./controller/reviewsController'))
 
 
 // ROUTES

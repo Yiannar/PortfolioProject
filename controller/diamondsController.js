@@ -7,9 +7,10 @@ const{deleteDiamond} = require('../queries/diamonds/delete')
 const {getDiamond} = require('../queries/diamonds/show')
 const {updateDiamond}= require('../queries/diamonds/update')
 
-const reviewsController = require('./reviewsController')
+// const reviewsController = require('./reviewsController')
 
-diamonds.use('/:diamondId/reviews', reviewsController)
+// diamonds.use('/:diamondId/reviews', reviewsController)
+
 
 //INDEX 
 diamonds.get('/', async(req, res)=>{
@@ -35,11 +36,12 @@ diamonds.get('/:id', async(req, res)=>{
 
 //CREATE
 diamonds.post('/', checkShape, checkBoolean, async (req, res)=>{
+    let copy = {...req.body}
    try {
-    const diamond = await createDiamond(req.body)
-    res.json(diamond)
+    const diamond = await createDiamond(copy)
+    res.status(200).json(diamond)
    } catch (error) {
-    res.status(400).json({error:error})
+    res.status(500).json({error:error})
    } 
 })
 

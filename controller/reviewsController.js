@@ -1,6 +1,10 @@
 const express = require('express')
 const reviews = express.Router()
-
+const {getAllReviews}= require('../queries/reviews/all')
+const {getReview} = require('../queries/reviews/show')
+const {deleteReview}= require('../queries/reviews/delete')
+const {createReview} = require ('../queries/reviews/create')
+const {updateReview} = require('../queries/reviews/update')
 
 //INDEX
 reviews.get('/', async (req, res)=>{
