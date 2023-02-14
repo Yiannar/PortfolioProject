@@ -1,15 +1,16 @@
 const express = require ('express')
 const diamonds = express.Router()
-const {checkShape, checkBoolean, validateImage,} = require('../validations/checkDiamonds')
+const { checkBoolean, validateImage,} = require('../validations/checkDiamonds')
 const {createDiamond,} = require ('../queries/diamonds/create')
 const {getAllDiamonds}= require('../queries/diamonds/all')
 const{deleteDiamond} = require('../queries/diamonds/delete')
 const {getDiamond} = require('../queries/diamonds/show')
 const {updateDiamond}= require('../queries/diamonds/update')
 
-// const reviewsController = require('./reviewsController')
 
-// diamonds.use('/:diamondId/reviews', reviewsController)
+const reviewsController = require('./reviewsController')
+
+diamonds.use('/:diamondId/reviews', reviewsController)
 
 
 //INDEX 
@@ -26,8 +27,8 @@ diamonds.get('/', async(req, res)=>{
 diamonds.get('/:id', async(req, res)=>{
     const{ id }= req.params
     const diamond = await getDiamond(id)
-    console.log('diamonds', diamonds)
-    if(!diamonds.message){
+    console.log('diamond', diamond)
+    if(!diamond.message){
         res.status(200).json(diamond)
     }else{
         res.status(400).json({error:'Not found'})
@@ -35,13 +36,12 @@ diamonds.get('/:id', async(req, res)=>{
 })
 
 //CREATE
-diamonds.post('/', checkShape, checkBoolean, async (req, res)=>{
-    let copy = {...req.body}
+diamonds.post('/', async (req, res)=>{
    try {
-    const diamond = await createDiamond(copy)
+    const diamond = await createDiamond(req.body)
     res.status(200).json(diamond)
    } catch (error) {
-    res.status(500).json({error:error})
+    res.status(500).json({error:'error cannot create'})
    } 
 })
 
@@ -58,7 +58,7 @@ diamonds.delete('/:id', async (req, res)=>{
 })
 
 //UPDATE
-diamonds.put('/:id', checkShape, checkBoolean, validateImage, async(req, res)=>{
+diamonds.put('/:id',checkBoolean, validateImage, async(req, res)=>{
     try {
         const {id}= req.params
         const updatedDiamond = await updateDiamond(id, req.body)

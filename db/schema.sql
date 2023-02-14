@@ -16,15 +16,16 @@ CREATE TABLE diamonds(
     is_reported BOOLEAN
 );
 
--- DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS reviews;
 
--- CREATE TABLE reviews (
---     id SERIAL PRIMARY KEY,
---     reviwer TEXT NOT NULL,
---     title TEXT,
---     content TEXT,
---     rating NUMERIC,
---     CHECK (rating >= 0 AND rating <=5),
---     diamond_id INTEGER REFERENCES diamonds (id)
---     ON DELETE CASCADE
--- );
+CREATE TABLE reviews (
+    id SERIAL PRIMARY KEY,
+    reviwer TEXT NOT NULL,
+    title TEXT,
+    content TEXT,
+    rating NUMERIC,
+    CHECK (rating >= 0 AND rating <=5),
+    diamond_id INTEGER, 
+    FOREIGN KEY (diamond_id) REFERENCES diamonds(id)
+    ON DELETE CASCADE
+);

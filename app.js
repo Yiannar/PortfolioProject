@@ -1,13 +1,13 @@
 const cors = require('cors');
 const express = require('express');
 // CONFIGURATION
-
+const diamondsController = require('./controller/diamondsController')
 const app = express();
 
 // MIDDLEWARE
 app.use(express.json());
 app.use(cors());
-app.use('/diamonds', require('./controller/diamondsController'));
+app.use('/diamonds', diamondsController);
 // app.use('/reviews', require('./controller/reviewsController'))
 
 
