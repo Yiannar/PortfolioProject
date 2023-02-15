@@ -1,6 +1,6 @@
 const express = require ('express')
 const diamonds = express.Router()
-const { checkBoolean, validateImage,} = require('../validations/checkDiamonds')
+// const { checkShape, checkBoolean, validateImage,} = require('../validations/checkDiamonds')
 const {createDiamond,} = require ('../queries/diamonds/create')
 const {getAllDiamonds}= require('../queries/diamonds/all')
 const{deleteDiamond} = require('../queries/diamonds/delete')
@@ -58,7 +58,7 @@ diamonds.delete('/:id', async (req, res)=>{
 })
 
 //UPDATE
-diamonds.put('/:id',checkBoolean, validateImage, async(req, res)=>{
+diamonds.put('/:id', async(req, res)=>{
     try {
         const {id}= req.params
         const updatedDiamond = await updateDiamond(id, req.body)
