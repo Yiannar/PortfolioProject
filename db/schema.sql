@@ -4,6 +4,9 @@ CREATE DATABASE diamonds_info;
 
 \c diamonds_info;
 
+DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS diamonds;
+
 CREATE TABLE diamonds(
     id SERIAL PRIMARY KEY,
     shape TEXT NOT NULL,
@@ -16,7 +19,6 @@ CREATE TABLE diamonds(
     is_reported BOOLEAN
 );
 
-DROP TABLE IF EXISTS reviews;
 
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,

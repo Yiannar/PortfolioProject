@@ -3,8 +3,8 @@ const reviews = express.Router({mergeParams:true})
 const {getAllReviews}= require('../queries/reviews/all')
 const {getReview} = require('../queries/reviews/show')
 const {deleteReview}= require('../queries/reviews/delete')
-const {createReview} = require ('../queries/reviews/create')
 const {updateReview} = require('../queries/reviews/update')
+const {createReview} = require('../queries/reviews/create')
 
 
 
@@ -23,7 +23,7 @@ try {
 reviews.get('/:id', async (req, res)=>{
     const { id } = req.params
     const review = await getReview(id)
-    // console.log ('review', review)
+    console.log ('review', review)
     if(!review.message){
         res.status(200).json(review)
     }else {
@@ -37,7 +37,7 @@ reviews.post('/', async (req, res)=>{
         const review = await createReview(req.body)
         res.status(200).json(review)
     } catch (error) {
-        res.status(500).json({error: error})
+        res.status(500).json({error: 'error'})
     }
 })
 
@@ -58,7 +58,7 @@ reviews.delete('/:id', async(req,res)=>{
 
 reviews.put('/:id', async (req, res)=>{
     try {
-        const {id} = req.params
+        const { id } = req.params
         const updatedReview = await updateReview(id, req.body)
         res.status(200).json(updatedReview)
     } catch (error) {

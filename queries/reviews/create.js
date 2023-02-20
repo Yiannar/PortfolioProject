@@ -1,7 +1,7 @@
 const db = require("../../db/dbConfig")
 
 
-const getReview = async (id) =>{
+const createReview = async (id) =>{
     try {
        const oneReview = await db.one('SELECT * FROM reviews WHERE id=$1', id) 
        return oneReview
@@ -10,4 +10,4 @@ const getReview = async (id) =>{
     }
 }
 
-module.exports ={getReview}
+module.exports ={createReview}

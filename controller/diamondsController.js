@@ -39,6 +39,7 @@ diamonds.get('/:id', async(req, res)=>{
 diamonds.post('/', async (req, res)=>{
    try {
     const diamond = await createDiamond(req.body)
+    console.log(diamond)
     res.status(200).json(diamond)
    } catch (error) {
     res.status(500).json({error:'error cannot create'})
