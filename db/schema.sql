@@ -22,7 +22,7 @@ CREATE TABLE diamonds(
 
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
-    reviwer TEXT NOT NULL,
+    reviewer TEXT NOT NULL,
     title TEXT,
     content TEXT,
     rating NUMERIC,

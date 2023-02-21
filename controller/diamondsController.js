@@ -63,6 +63,7 @@ diamonds.put('/:id', async(req, res)=>{
     try {
         const {id}= req.params
         const updatedDiamond = await updateDiamond(id, req.body)
+        console.log(updatedDiamond)
         res.status(200).json(updatedDiamond)
     } catch (error) {
         res.status(404).json({error:'diamond not found'})
