@@ -13,7 +13,7 @@ INSERT INTO diamonds( shape ,image, carat , color , clarity , cut, price, is_rep
 ('Heart', 'https://res.cloudinary.com/dwjrv71xr/image/upload/v1676013180/heart-diamond_yjbfls.jpg',536, 'D', 'FL', 'Very Good', 407848, true);
 
 
-INSERT INTO reviews ( diamond_id, reviwer, title, content, rating) VALUES
+INSERT INTO reviews ( diamond_id, reviewer, title, content, rating) VALUES
 ('1', 'John', 'My Favorite', 'This diamond is such a great gift my wife loves it!', 5),
 ('2', 'Jane', 'My Favorite', 'I love this shape but I would like a better clarity!', 3),
 ('3', 'Maria', 'My Least Favorite', 'This diamond is okay but its just lacking something', 3),
