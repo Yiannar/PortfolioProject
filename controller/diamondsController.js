@@ -1,11 +1,7 @@
 const express = require ('express')
 const diamonds = express.Router()
 // const { checkShape, checkBoolean, validateImage,} = require('../validations/checkDiamonds')
-const {createDiamond,} = require ('../queries/diamonds/create')
-const {getAllDiamonds}= require('../queries/diamonds/all')
-const{deleteDiamond} = require('../queries/diamonds/delete')
-const {getDiamond} = require('../queries/diamonds/show')
-const {updateDiamond}= require('../queries/diamonds/update')
+const {getAllDiamonds, updateDiamond,getDiamond,createDiamond, deleteDiamond} = require('../queries/diamonds/diamonds')
 
 
 const reviewsController = require('./reviewsController')
