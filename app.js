@@ -2,13 +2,25 @@ const cors = require('cors');
 const express = require('express');
 // CONFIGURATION
 const diamondsController = require('./controller/diamondsController')
+const profileController = require('./controller/profileController')
+const orderController = require('./controller/orderController')
+const orderItemsController = require('./controller/orderItemsController')
+const reviewsController =require('./controller/reviewsController')
 const app = express();
+
+const morgan = require('morgan')
 
 // MIDDLEWARE
 app.use(express.json());
 app.use(cors());
+app.use(morgan('tiny'))
+
+// ROUTES
 app.use('/diamonds', diamondsController);
-// app.use('/reviews', require('./controller/reviewsController'))
+app.use('/reviews', reviewsController)
+app.use('/profile', profileController)
+app.use('/order',orderController)
+app.use('/orderItems', orderItemsController)
 
 
 // ROUTES

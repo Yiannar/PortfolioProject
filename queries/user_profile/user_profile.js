@@ -18,25 +18,27 @@ const getAllUserProfiles = async () =>{
         }
 }
 
-const loginUser = async (profile) =>{
-    let { email, password } = profile
+const loginUser = async (profile) => {
+    let { email, password } = profile;
     try {
-       const user = await db.one('SELECT * FROM profile WHERE email=$1 AND password=$2', [email, password])
-       const confidential ={
-        email:user.email,
-        first_name:user.first_name,
-        last_name:user.last_name,
-        birth_date:user.birth_date,
-        gender:user.gender,
-        address:user.address,
-        id:user.id
-       }
-       return confidential
+      const user = await db.one('SELECT * FROM profile WHERE email=$1 AND password=$2', [email, password]);
+      const confidential = {
+        email: user.email,
+        first_name: user.first_name,
+        last_name: user.last_name,
+        birth_date: user.birth_date,
+        gender: user.gender,
+        address: user.address,
+        id: user.id
+      };
+      return { success: true, user: confidential };
     } catch (error) {
-        return error
+      // Handle the error gracefully and return an appropriate response.
+      console.error(error);
+      return { success: false, message: 'Invalid email or password' };
     }
-}
-
+  };
+  
 const createUser = async(profile) =>{
     let{first_name, last_name, email, password, birth_date, gender, address, zipCode} = profile
     try {

@@ -9,15 +9,17 @@ const {createReview} = require('../queries/reviews/create')
 
 
 //INDEX
-reviews.get('/', async (req, res)=>{
-    const { diamondId }= req.params
-try {
-    const allReviews = await getAllReviews(diamondId)
-    res.status(200).json(allReviews)
-} catch (error) {
-    res.status(500).json({error: 'Internal Server Error'})
-}   } );
-
+reviews.get('/:diamond_id', async (req, res) => {
+    const { diamond_id } = req.params;
+  
+    try {
+      const reviews = await getAllReviews(diamond_id);
+      res.status(200).json(reviews);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
 
 //SHOW
 reviews.get('/:id', async (req, res)=>{

@@ -1,6 +1,6 @@
 const express = require('express')
 const order = express.Router({mergeParams:true})
-const {createOrder,getAllOrders,deleteOrder,getOrder,updateOrder, deleteOrder, updateOrder} = require('../queries/orders/order')
+const {createOrder,getAllOrders,deleteOrder,getOrder,updateOrder} = require('../queries/orders/order')
 
 
 //Index
