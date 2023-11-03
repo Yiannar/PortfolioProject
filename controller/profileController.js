@@ -17,17 +17,17 @@ try {
 }   } );
 
 
-//SHOW
-profile.get('/:id', async (req, res)=>{
-    const { id } = req.params
-    const review = await getUser(id)
-    console.log ('profile', profile)
-    if(!profile.message){
-        res.status(200).json(profile)
-    }else {
-        res.status(400).json({error: "Not found"})
+// SHOW
+profile.get('/:id', async (req, res) => {
+    const { id } = req.params;
+    const userProfile = await getUser(id); // Change 'review' to 'userProfile'
+    if (!userProfile.message) {
+      res.status(200).json(userProfile);
+    } else {
+      res.status(400).json({ error: "Not found" });
     }
-})
+  });
+  
 
 //CREATE 
 profile.post('/', async (req, res)=>{
@@ -38,6 +38,21 @@ profile.post('/', async (req, res)=>{
         res.status(500).json({error: 'error'})
     }
 })
+
+// LOGIN
+profile.post('/login', async (req, res) => {
+    try {
+      const loggedInUser = await loginUser(req.body);
+      if (!loggedInUser.message) {
+        res.status(200).json(loggedInUser);
+      } else {
+        res.status(401).json({ error: "Invalid credentials" });
+      }
+    } catch (error) {
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+  
 
 //DELETE 
 

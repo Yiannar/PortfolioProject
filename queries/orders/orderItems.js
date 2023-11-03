@@ -54,4 +54,4 @@ const updateOrderItems = async (id, orderItems) =>{
 }
 
 
-module.exports = {getAllOrderItems, createOrderItem,deleteOrderItems,getAllOrderItems,updateOrderItems}
+module.exports = {getAllOrderItems, createOrderItem,deleteOrderItems,getOrderItems,updateOrderItems}
