@@ -42,12 +42,13 @@ const deleteDiamond = async (id) => {
 
 const getDiamond = async (id)=>{
     try {
-        const diamond = await db.any('SELECT * FROM products WHERE id=$1', id)
+        const diamond = await db.any('SELECT * FROM products WHERE id=$1' , id)
         return diamond
     } catch (error) {
         return error
     }
 };
+
 
 const updateDiamond = async (id, diamond) => {
     let {shape ,image, carat , color , clarity , cut, price, is_reported} = diamond

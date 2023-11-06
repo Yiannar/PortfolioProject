@@ -66,7 +66,6 @@ CREATE TABLE reviews (
     title TEXT,
     content TEXT,
     rating NUMERIC CHECK (rating >= 0 AND rating <= 5),
-    diamond_id INTEGER REFERENCES products(id)
-    ON DELETE CASCADE,
+    diamond_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
     user_id INTEGER REFERENCES profile(id)
 );

@@ -17,7 +17,8 @@ app.use(morgan('tiny'))
 
 // ROUTES
 app.use('/diamonds', diamondsController);
-app.use('/reviews', reviewsController)
+app.use('/diamonds/reviews', reviewsController);
+app.use('/diamonds/:diamond_id/reviews', reviewsController);
 app.use('/profile', profileController)
 app.use('/order',orderController)
 app.use('/orderItems', orderItemsController)
